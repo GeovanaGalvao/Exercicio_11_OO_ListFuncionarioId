@@ -30,7 +30,17 @@ public class Programa {
 			System.out.println("\nFuncionario cadastrado com sucesso!");
 			System.out.println("\n-------------------------------------\n");
 		}
-		System.out.println("Por hoje eh so pessoal!");
+		
+		int id;
+		System.out.print("Por favor digite o id do funcionario que deseja aumentar o salario: ");
+		id = sc.nextInt();
+		sc.nextLine();
+		for (Funcionario funcionario : listaDeFuncionarios) {
+			if( funcionario.getId() == id) { funcionario.aumentoSalarial(); }
+		}
+		
+		System.out.println("\n-------------------------------------\n");
+		Funcionario.exibeListaDeFuncionarios(listaDeFuncionarios);
 		sc.close();
 	}
 }

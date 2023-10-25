@@ -54,13 +54,25 @@ public class Funcionario {
 		scan.nextLine();
 		return salario;
 	}
+	
+	public void aumentoSalarial() {
+		Scanner scan = new Scanner (System.in);
+		System.out.print("Por favor digite a porcentagem do aumento salarial: ");
+		salario += (salario*scan.nextDouble())/100;
+		scan.nextLine();
+	}
+	
+	public static void exibeListaDeFuncionarios(List<Funcionario> listaDeFuncionarios) {
+		for (Funcionario funcionario : listaDeFuncionarios) {
+			System.out.println(funcionario);
+		}
+	}
 
 	public int getId() { return id; }
 	public String getNome() { return nome; }
-	
 	public void setNome(String nome) { this.nome = nome; }
-	
 	public double getSalario() { return salario; }
 	
-	public String toString () {return getId() + ", " + getNome() + ", R$:" + getSalario();}
+	public String toString () {return String.format("%06d",getId()) + ", " + getNome() +
+			", R$:" + String.format("%.2f",getSalario());}
 }
